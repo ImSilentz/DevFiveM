@@ -316,18 +316,40 @@ RegisterNetEvent('wasabi_police:putInVehicle', function()
             end
         end
         if freeSeat then
+            if lib.progressCircle({
+                duration = 2500,
+                label = 'Action en cour',
+                position = 'bottom',
+                useWhileDead = false,
+                canCancel = true,
+                disable = {
+                    car = true,
+                },
+            }) then
             FreezeEntityPosition(cache.ped, false)
             TaskWarpPedIntoVehicle(cache.ped, vehicle, freeSeat)
             FreezeEntityPosition(cache.ped, true)
+            end
         end
     end
 end)
 
 RegisterNetEvent('wasabi_police:takeFromVehicle', function()
 	if IsPedSittingInAnyVehicle(cache.ped) then
+        if lib.progressCircle({
+            duration = 2500,
+            label = 'Retirer du véhicule',
+            position = 'bottom',
+            useWhileDead = false,
+            canCancel = true,
+            disable {
+                car = true,
+            },
+        }) then
 		local vehicle = GetVehiclePedIsIn(cache.ped, false)
 		TaskLeaveVehicle(cache.ped, vehicle, 64)
                 FreezeEntityPosition(cache.ped, false)
+        end
 	end
 end)
 

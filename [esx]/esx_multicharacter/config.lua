@@ -2,12 +2,12 @@ Config = {}
 Config.Locale = GetConvar('esx:locale', 'fr')
 
 -- Allows players to delete their characters
-Config.CanDelete = true
+Config.CanDelete = false
 
 if IsDuplicityVersion() then
 	-- This is the default number of slots for EVERY player
 	-- If you want to manage extra slots for specific players you can do it by using '/setslots' and '/remslots' commands
-	Config.Slots = 4
+	Config.Slots = 2
 	--------------------
 
 	-- Text to prepend to each character (char#:identifier) - keep it short
@@ -21,7 +21,7 @@ else
 
 	-- Do not use unless you are prepared to adjust your resources to correctly reset data
 	-- Information: https://github.com/thelindat/esx_multicharacter#relogging
-	Config.Relog = true
+	Config.Relog = false
 	--------------------
 
 	-- Default appearance for new characters
